@@ -428,7 +428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 2000166439}
-  _health: {fileID: 1612049487}
+  _health: {fileID: 411056852}
 --- !u!114 &411056852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,8 +441,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62166b844bbdb8646bfdeb5f8efff307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthBar: {fileID: 411056851}
   _slider: {fileID: 2000166439}
+  _healthPointsLabel: {fileID: 1612049487}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -763,9 +763,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 411056852}
-        m_TargetAssemblyTypeName: HealthBarChanger, Assembly-CSharp
-        m_MethodName: Damage
+      - m_Target: {fileID: 411056851}
+        m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
+        m_MethodName: Decrease
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1050,9 +1050,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 411056852}
-        m_TargetAssemblyTypeName: HealthBarChanger, Assembly-CSharp
-        m_MethodName: Heal
+      - m_Target: {fileID: 411056851}
+        m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
+        m_MethodName: Add
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -1,58 +1,26 @@
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class HealthBar : MonoBehaviour
 {
-    // менять здоровье в одном классе, а когда оно изменяется, событием передать
-    // текущее значение здоровья в другой класс, который занимается отображением.
-
     [SerializeField] private Slider _slider;
-    [SerializeField] private Text _health;
+    [SerializeField] private Health _health;
 
-    private float _targetHealth;
-    private int _receivedHealth;
-    private int _lostHealth;
+    private float _duration;
 
     private void OnValidate()
     {
-        _receivedHealth = 10;
-        _lostHealth = 10;
+        _duration = 1.2f;
     }
 
-    // показывает здоровье в реальном времени
-    private void Update()
+    public void Add()
     {
-        _targetHealth = _slider.value;
-        _health.text = _targetHealth + " / " + _slider.maxValue;
+        _slider.DOValue(_health.GetHeal(), _duration);
     }
 
-    //public float ChangeValue(bool isHealing)
-    //{
-    //    if (isHealing)
-    //    {
-    //        return _receivedHealth;
-    //    }
-    //    else
-    //    {
-    //        return _lostHealth;
-    //    }
-    //}
-
-    //public float GetHealth(bool isHealing)
-    //{
-    //    if (isHealing)
-    //        return _slider.value + _receivedHealth;
-
-    //    return _slider.value - _lostHealth;
-    //}
-
-    public float Add()
+    public void Decrease()
     {
-        return _targetHealth + _receivedHealth;
-    }
-
-    public float Decrease()
-    {
-         return _targetHealth - _lostHealth;
+        _slider.DOValue(_health.GetDamage(), _duration);
     }
 }
