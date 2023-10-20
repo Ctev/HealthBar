@@ -441,6 +441,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62166b844bbdb8646bfdeb5f8efff307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _healthBar: {fileID: 411056851}
   _slider: {fileID: 2000166439}
 --- !u!1 &519420028
 GameObject:
@@ -763,8 +764,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 411056852}
-        m_TargetAssemblyTypeName: ChangeBar, Assembly-CSharp
-        m_MethodName: Decrease
+        m_TargetAssemblyTypeName: HealthBarChanger, Assembly-CSharp
+        m_MethodName: Damage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1050,8 +1051,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 411056852}
-        m_TargetAssemblyTypeName: ChangeBar, Assembly-CSharp
-        m_MethodName: Add
+        m_TargetAssemblyTypeName: HealthBarChanger, Assembly-CSharp
+        m_MethodName: Heal
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1059,7 +1060,7 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 0
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!114 &1588361712
 MonoBehaviour:
