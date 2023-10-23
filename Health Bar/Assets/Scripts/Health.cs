@@ -4,33 +4,23 @@ using UnityEngine.UI;
 public class Health : MonoBehaviour
 {
     [SerializeField] private Slider _slider;
-    [SerializeField] private Text _healthPointsLabel;
 
     private float _currentHealth;
     private float _maxHealth;
-    private float _receivedHealth;
-    private float _lostHealth;
-
-    private void OnValidate()
-    {
-        _maxHealth = _slider.maxValue;
-        _receivedHealth = 10f;
-        _lostHealth = 10f;
-    }
 
     private void Update()
     {
         _currentHealth = _slider.value;
-        _healthPointsLabel.text = _currentHealth + " - " + _maxHealth;
+        _maxHealth = _slider.maxValue;
     }
 
-    public float GetHeal()
+    public float Heal(float receivedHealth)
     {
-        return _currentHealth += _receivedHealth;
+        return _currentHealth += receivedHealth;
     }
 
-    public float GetDamage()
+    public float Damage(float lostHealth)
     {
-        return _currentHealth -= _lostHealth;
+        return _currentHealth -= lostHealth;
     }
 }

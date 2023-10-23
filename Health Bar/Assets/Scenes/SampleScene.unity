@@ -429,6 +429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _slider: {fileID: 2000166439}
   _health: {fileID: 411056852}
+  _healthPointsLabel: {fileID: 1612049487}
 --- !u!114 &411056852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -442,7 +443,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 2000166439}
-  _healthPointsLabel: {fileID: 1612049487}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
