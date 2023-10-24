@@ -428,7 +428,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 2000166439}
-  _health: {fileID: 411056852}
   _healthPointsLabel: {fileID: 1612049487}
 --- !u!114 &411056852
 MonoBehaviour:
@@ -443,6 +442,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 2000166439}
+  _healButton: {fileID: 1588361711}
+  _damageButton: {fileID: 1139137843}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -762,19 +763,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1139137844}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 411056851}
-        m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
-        m_MethodName: Decrease
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1139137844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1049,19 +1038,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1588361712}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 411056851}
-        m_TargetAssemblyTypeName: HealthBar, Assembly-CSharp
-        m_MethodName: Add
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1588361712
 MonoBehaviour:
   m_ObjectHideFlags: 0
