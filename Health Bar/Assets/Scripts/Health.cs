@@ -1,29 +1,24 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using DG.Tweening;
-using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    // Health самосто€тельна€ сущность, никак не завис€ща€ от слайдера/бара.
-    // ћетоды Heal и Damage не должны ничего возвращать. ѕри их вызове происходит
-    // изменение здоровь€, проверка на мин макс и вызов ивента, сообщающего всем
-    // об изменении здоровь€
-
     [SerializeField] private Slider _slider;
     [SerializeField] private Button _healButton;
     [SerializeField] private Button _damageButton;
 
     private float _currentHealth;
+    private float _targetHealth;
     private float _maxHealth;
-    private float _duration;
+    private float _updateSpeed;
     private float _receivedHealth;
     private float _lostHealth;
 
     private void OnValidate()
     {
         _maxHealth = _slider.maxValue;
-        _duration = 1.2f;
+        _updateSpeed = 10f;
         _receivedHealth = 10f;
         _lostHealth = 10f;
     }
@@ -34,27 +29,33 @@ public class Health : MonoBehaviour
         _damageButton.onClick.AddListener(Damage);
     }
 
-    private void Update()
+    private IEnumerator UpdatingHealth()
     {
-        _slider.value = _currentHealth;
+        while (_currentHealth != _targetHealth)
+        {
+            _currentHealth = Mathf.MoveTowards(_currentHealth, _targetHealth, _updateSpeed * Time.deltaTime);
+
+            _slider.value = _currentHealth;
+
+            yield return null;
+        }
     }
 
     private void Heal()
     {
-        //if (_currentHealth + receivedHealth > _maxHealth)
-        //    _currentHealth = _maxHealth;
-        //else
-        //    _currentHealth += receivedHealth;
+        if (_targetHealth < _maxHealth)
+            _targetHealth += _receivedHealth;
 
-        _slider.DOValue(_currentHealth += _receivedHealth, _duration);
-        //_currentHealth += _receivedHealth;
-
-        //_slider.DOValue(_currentHealth, _duration);
+        StartCoroutine(UpdatingHealth());
+        StopCoroutine(UpdatingHealth());
     }
 
     private void Damage()
     {
-        _slider.DOValue(_currentHealth -= _lostHealth, _duration);
-        //_currentHealth -= _lostHealth;
+        if (_targetHealth != 0)
+            _targetHealth -= _lostHealth;
+
+        StartCoroutine(UpdatingHealth());
+        StopCoroutine(UpdatingHealth());
     }
 }
